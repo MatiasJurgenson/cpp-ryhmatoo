@@ -5,10 +5,14 @@
 //programmi jooksutamiseks tee "make roulette"
 
 int main() {
+    int konto = 1000;
+    int* kontoptr = &konto;
+
     for (int i = 0; i < 10; i++) {
-        int number = suvaline_number(0, 37);
-        std::cout << värv(number) << " " << number << "\n";
+        round(100, 21, kontoptr);
     }
+
+    std::cout << konto << "\n";
 
     return 0;
 }
