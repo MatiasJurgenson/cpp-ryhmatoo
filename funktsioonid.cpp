@@ -1,7 +1,6 @@
 #include "funktsioonid.h"
 
 #include <random>
-#include <iostream>
 
 
 int suvaline_number(int a, int b) {
@@ -39,9 +38,9 @@ void väline_tulemus(bool väärtus, int panuse_kogus, int kordaja, int* konto) 
     }
 }
 
-void käsurealt_info(int argc, char* argv[], std::vector<int>& kasutaja_sisend) {
+void käsurealt_info(int argc, char* argv[], std::vector<int>& kasutaja_sisend) { //loeb käsurealt saadud info ja paneb vektrorisse
     for (int i = 0; i < argc; ++i) { //töötleb käsurea sisendit
-        kasutaja_sisend.push_back(std::atoi(argv[i])); 
+        kasutaja_sisend.push_back(std::atoi(argv[i])); //sisend muudetakse int tüübiks ja lisatakse vektorisse
     }
 }
 

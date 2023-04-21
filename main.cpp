@@ -1,7 +1,5 @@
 #include "funktsioonid.h"
 
-#include <iostream>
-
 //programmi jooksutamiseks tee "make roulette"
 
 int main(int argc, char* argv[]) {

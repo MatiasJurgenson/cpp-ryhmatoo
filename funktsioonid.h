@@ -3,6 +3,7 @@
 
 #include <string>
 #include <vector>
+#include <iostream>
 
 int suvaline_number(int a, int b);
 std::string värv(int a);
