@@ -39,6 +39,12 @@ void väline_tulemus(bool väärtus, int panuse_kogus, int kordaja, int* konto) 
     }
 }
 
+void käsurealt_info(int argc, char* argv[], std::vector<int>& kasutaja_sisend) {
+    for (int i = 0; i < argc; ++i) { //töötleb käsurea sisendit
+        kasutaja_sisend.push_back(std::atoi(argv[i])); 
+    }
+}
+
 void round(int panuse_kogus, int panuse_stiil, int* konto) { //22 võidu viisi
     int number = suvaline_number(0, 37);
     std::string round_värv = värv(number);
