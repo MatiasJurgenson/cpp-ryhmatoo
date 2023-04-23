@@ -3,7 +3,8 @@
 //programmi jooksutamiseks tee "make roulette"
 
 int main(int argc, char* argv[]) {
-    int konto = 1000;
+    int konto;
+    failist_raha("raha.txt", konto); //loeb failist kontol oleva raha summa
     int* kontoptr = &konto;
 
     std::vector<int> kasutaja_sisend; //käsurea sisendi hoidmiseks
@@ -13,8 +14,8 @@ int main(int argc, char* argv[]) {
         round(kasutaja_sisend.at(1), kasutaja_sisend.at(2), kontoptr);
     }
     
+    std::cout << "Raha alles: " << konto << "\n";
+    raha_faili("raha.txt", konto); //paneb konto summa faili
     
-    std::cout << konto << "\n";
-
     return 0;
 }

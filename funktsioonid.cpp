@@ -44,6 +44,21 @@ void käsurealt_info(int argc, char* argv[], std::vector<int>& kasutaja_sisend) 
     }
 }
 
+void failist_raha(std::string failiNimi, int& summa) { //loeb failist kontol oleva raha summa
+    std::ifstream fail(failiNimi); //avab faili
+    std::string rida;
+    std::getline(fail, rida); //loeb ainult esimese rea, sest failis on ainult 1 rida konto summa jaoks
+    summa = std::stoi(rida); //annab summale failist saadud väärtuse
+    fail.close();
+}
+
+void raha_faili(std::string failiNimi, int& summa) { //paneb konto summa faili
+    std::ofstream fail(failiNimi); //avab faili
+    fail << summa; //lisab summa faili
+    fail.close();
+}
+
+
 void round(int panuse_kogus, int panuse_stiil, int* konto) { //22 võidu viisi
     int number = suvaline_number(0, 37);
     std::string round_värv = värv(number);
