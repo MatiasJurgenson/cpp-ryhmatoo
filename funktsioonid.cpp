@@ -3,12 +3,14 @@
 #include <random>
 
 
+//genereerib suvalise numbri antud vahemikus
 int suvaline_number(int a, int b) {
     std::random_device generator;
     std::uniform_int_distribution<int> distribution(a,b);
     return distribution(generator);
 }
 
+//olenevalt sisestatud numbrist tagastab värvi, mis sellele numbrile vastab, rouletti reeglite järgi
 std::string värv(int a) {
     if (a == 0 || a == 37) { // kas 0 või 00
         return "roheline";
@@ -28,6 +30,7 @@ std::string värv(int a) {
     }
 }
 
+// vastavalt sellele kas mängija võidab või kaotab (bool väärtus) tehakse teha kontole vastavad muudatused
 void väline_tulemus(bool väärtus, int panuse_kogus, int kordaja, int* konto) {
     if (väärtus) {
         *konto += kordaja * panuse_kogus;
@@ -58,16 +61,19 @@ void raha_faili(std::string failiNimi, int& summa) { //paneb konto summa faili
     fail.close();
 }
 
-
+//pks rouletti round, kasutaja panuse kogusega ja panuse stiiliga, nt: 100€ panus punasele värvile
 void round(int panuse_kogus, int panuse_stiil, int* konto) { //22 võidu viisi
+
+    //genereeritakse suvaline number ja sellele vastav värv
     int number = suvaline_number(0, 37);
     std::string round_värv = värv(number);
 
+    //väljastadakse, tulemus
     std::cout << "Pall maandus: " << round_värv << " " << number << "\n";     
 
     //sisemised panused
 
-    //välised panused
+    //roulettis olevad välised panused (https://en.wikipedia.org/wiki/Roulette) 
     switch(panuse_stiil) {
         case 10: // 1 tulp
             väline_tulemus((number % 3 == 1 && number != 37), panuse_kogus, 2, konto);
