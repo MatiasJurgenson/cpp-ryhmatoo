@@ -15,15 +15,22 @@ std::string värv(int a) {
     if (a == 0 || a == 37) { // kas 0 või 00
         return "roheline";
     }
+
+    //kui arv vahemiks 1-10 ja 19-28
     if (a < 11 || (a > 18 && a < 29)) {
+        //paaris siis must
         if (a % 2 == 0) {
             return "must";
+        //kui paaritu siis panane
         } else {
             return "punane";
         }
+    //kui arv vahemiks 11-18 ja 29-36
     } else {
+        //paaritu siis must
         if (a % 2 == 1) {
             return "must";
+        //kui paaris siis panane
         } else {
             return "punane";
         }
@@ -129,4 +136,166 @@ void round(int panuse_kogus, int panuse_stiil, int* konto) { //22 võidu viisi
         break;
     }
 
+}
+
+//vaatab kas kasutaja sisestatud sisend on õige
+int valik(int mitu_valikut) {
+    int sisend = -1;
+    while (true)
+    {
+        std::cin >> sisend;
+        if (0 < sisend && sisend <= mitu_valikut) {
+            break;
+        } else {
+            std::cout << "Sellist valikut ei ole!\nValiku tegemiseks sisestage number: ";
+        }
+    }
+    return sisend;
+}
+
+//selgitused erinevatele panustamis viisidele
+void panuse_viisid() {
+    std::cout << "**************\npanuse viisid\n**************\n\n";
+
+    while (true) {
+        std::cout << "1. must\n2. punane\n3. kõrge\n4. madal\n5. number\n6. paaritu\n7. paaris\n8. tosinad\n9. tulbad\n10. madu\n\n11. tagasi\n\nValiku tegemiseks sisestage number: ";
+    
+        int sisend = valik(11);
+
+        switch(sisend) {
+            case 1: 
+
+            break;
+
+            case 2: 
+            
+            break;
+
+            case 3: 
+
+            break;
+
+            case 4: 
+            
+            break;
+
+            case 5: 
+            
+            break;
+
+            case 6: 
+            
+            break;
+
+            case 7: 
+            
+            break;
+
+            case 8: 
+            
+            break;
+
+            case 9: 
+            
+            break;
+
+            case 10: 
+            
+            break;
+
+            case 11: 
+                return;
+            break;
+        }
+    }      
+}
+
+void mängima(int* konto) {
+    std::cout << "**************\nmängimine\n**************\n\n";
+    int panus;
+    while (true) { 
+        std::cout << "Sisestage panuse suurus: ";
+        std::cin >> panus;
+        if (panus <= *konto) {
+            break;
+        } else {
+            std::cout << "Pole piisavalt raha panuse tegemiseks!\nTeil on kontol alles " << *konto << "\n";
+        }
+    }
+
+    while (true) {
+        std::cout << "\nValige panuse tüüp\n\n";
+        std::cout << "1. must\n2. punane\n3. kõrge\n4. madal\n5. number\n6. paaritu\n7. paaris\n8. 1.tosin\n9. 2.tosin\n10. 3.tosin\n11. 1.tulp" <<
+        "\n12. 2.tulp\n13. 3.tulp\n14. madu\n\n15. tagasi\n\nValiku tegemiseks sisestage number: ";
+    
+        int sisend = valik(15);
+
+        switch(sisend) {
+            case 1: //must
+                std::cout << "\n=======================\n\n";
+                round(panus, 19, konto);
+                std::cout << "\n=======================\n\n";
+            break;
+
+            case 2: //punane
+                std::cout << "\n=======================\n\n";
+                round(panus, 18, konto);
+                std::cout << "\n=======================\n\n";
+            break;
+
+            case 3: 
+
+            break;
+
+            case 4: 
+            
+            break;
+
+            case 5: 
+            
+            break;
+
+            case 6: 
+            
+            break;
+
+            case 7: 
+            
+            break;
+
+            case 8: 
+            
+            break;
+
+            case 9: 
+            
+            break;
+
+            case 10: 
+            
+            break;
+
+            case 11: 
+            
+            break;
+
+            case 12: 
+            
+            break;
+
+            case 13: 
+            
+            break;
+
+            case 14: 
+            
+            break;
+
+            case 15: 
+                return;
+            break;
+        }
+        //peale panuse tegemist läheb peaekraanile tagasi
+        return;
+    }
 }

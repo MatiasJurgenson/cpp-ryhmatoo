@@ -14,5 +14,9 @@ void väline_tulemus(bool väärtus, int panuse_kogus, int kordaja, int* konto);
 void käsurealt_info(int argc, char* argv[], std::vector<int>& kasutaja_sisend);
 void failist_raha(std::string failiNimi, int& summa);
 void raha_faili(std::string failiNimi, int& summa);
+int valik(int mitu_valikut);
+void panuse_viisid();
+void mängima(int* konto);
+
 
 #endif
