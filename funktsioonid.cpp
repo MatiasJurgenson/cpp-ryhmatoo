@@ -184,47 +184,81 @@ void panuse_viisid() {
         int sisend = valik(11);
 
         switch(sisend) {
-            case 1: 
-
+            case 1: //must
+                std::cout << "=======================\n\n" <<
+                "Kui pall maandub mustale värvile, siis saavutadakse võit." <<
+                "\n\nPanus tagsatadakse 1 : 1 (panus : tagastus).\n" <<
+                "\n\n=======================\n\n";
             break;
 
-            case 2: 
-            
+            case 2: //punane
+                std::cout << "=======================\n\n" <<
+                "Kui pall maandub punasele värvile, siis saavutadakse võit." <<
+                "\n\nPanus tagsatadakse 1 : 1 (panus : tagastus).\n" <<
+                "\n\n=======================\n\n";
             break;
 
-            case 3: 
-
+            case 3: //kõrge
+                std::cout << "=======================\n\n" <<
+                "Kui pall maandub numbritele 19-36, siis saavutadakse võit." <<
+                "\n\nPanus tagsatadakse 1 : 1 (panus : tagastus).\n" <<
+                "\n\n=======================\n\n";
             break;
 
-            case 4: 
-            
+            case 4: //madal
+                std::cout << "=======================\n\n" <<
+                "Kui pall maandub numbritele 1-18, siis saavutadakse võit." <<
+                "\n\nPanus tagsatadakse 1 : 1 (panus : tagastus).\n" <<
+                "\n\n=======================\n\n";
             break;
 
-            case 5: 
-            
+            case 5: //number
+                std::cout << "=======================\n\n" <<
+                "Kui pall maandub mängija poolt valitud numbrile (0-36), siis saavutadakse võit." <<
+                "\n\nPanus tagsatadakse 1 : 35 (panus : tagastus).\n" <<
+                "\n\n=======================\n\n";
             break;
 
-            case 6: 
-            
+            case 6: //paaritu
+                std::cout << "=======================\n\n" <<
+                "Kui pall maandub numbritele 1, 3, 5, ..., 35, siis saavutadakse võit." <<
+                "\n\nPanus tagsatadakse 1 : 1 (panus : tagastus).\n" <<
+                "\n\n=======================\n\n";
+            break; 
+
+            case 7: //paaris
+                std::cout << "=======================\n\n" <<
+                "Kui pall maandub numbritele 2, 4, 6, ..., 36, siis saavutadakse võit." <<
+                "\n\nPanus tagsatadakse 1 : 1 (panus : tagastus).\n" <<
+                "\n\n=======================\n\n";
             break;
 
-            case 7: 
-            
+            case 8: //tosinad
+                std::cout << "=======================\n\n" <<
+                "Kui pall maandub numbritele 1-12 (1. tosin), siis saavutadakse võit." <<
+                "\nKui pall maandub numbritele 13-24 (2. tosin), siis saavutadakse võit." <<
+                "\nKui pall maandub numbritele 25-36 (3. tosin), siis saavutadakse võit." <<
+                "\n\nPanus tagsatadakse 1 : 2 (panus : tagastus).\n" <<
+                "\n\n=======================\n\n";
             break;
 
-            case 8: 
-            
+            case 9: //tulbad
+                std::cout << "=======================\n\n" <<
+                "Kui pall maandub numbritele 1, 4, 7, 10, 13, 16, 19, 22, 25, 28, 31, 34 (1. tulp), siis saavutadakse võit." <<
+                "\nKui pall maandub numbritele 2, 5, 8, 11, 14, 17, 20, 23, 26, 29, 32, 35 (2. tulp), siis saavutadakse võit." <<
+                "\nKui pall maandub numbritele 3, 6, 9, 12, 15, 18, 21, 24, 27, 30, 33, 36 (3. tulp), siis saavutadakse võit." <<
+                "\n\nPanus tagsatadakse 1 : 2 (panus : tagastus).\n" <<
+                "\n\n=======================\n\n";
             break;
 
-            case 9: 
-            
+            case 10: //madu
+                std::cout << "=======================\n\n" <<
+                "Kui pall maandub numbritele  1, 5, 9, 12, 14, 16, 19, 23, 27, 30, 32, 34, siis saavutadakse võit." <<
+                "\n\nPanus tagsatadakse 1 : 2 (panus : tagastus).\n" <<
+                "\n\n=======================\n\n";
             break;
 
-            case 10: 
-            
-            break;
-
-            case 11: 
+            case 11: //välju
                 return;
             break;
         }
