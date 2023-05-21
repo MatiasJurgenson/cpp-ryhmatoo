@@ -1,8 +1,6 @@
 #include "funktsioonid.h"
 
 //programmi jooksutamiseks tee "make roulette"
-//mängimiseks ./roulette <panus> <panuse tüüp>
-
 
 int main(int argc, char* argv[]) {
     int konto;
