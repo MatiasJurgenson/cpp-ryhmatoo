@@ -71,9 +71,26 @@ void raha_faili(std::string failiNimi, int& summa) { //paneb konto summa faili
 //pks rouletti round, kasutaja panuse kogusega ja panuse stiiliga, nt: 100€ panus punasele värvile
 void round(int panuse_kogus, int panuse_stiil, int* konto) { //22 võidu viisi
 
+    int numbripanus;
+
+    //kui valitakse numbriga tehtav panus, siis küsitakse kasutajalt numbrit
+    if (panuse_stiil == 9) {
+        while (true) {
+            std::cout << "Sisestage number: ";
+            std::cin >> numbripanus;
+            if (-1 < numbripanus && numbripanus < 37) {
+                break;
+            } else {
+                std::cout << "Sellist numbrit ei ole!\nSisestage number: ";
+            }
+        };
+    }
+
     //genereeritakse suvaline number ja sellele vastav värv
     int number = suvaline_number(0, 37);
     std::string round_värv = värv(number);
+
+    std::cout << "\n=======================\n\n";
 
     //väljastadakse, tulemus
     std::cout << "Pall maandus: " << round_värv << " " << number << "\n";     
@@ -82,6 +99,10 @@ void round(int panuse_kogus, int panuse_stiil, int* konto) { //22 võidu viisi
 
     //roulettis olevad välised panused (https://en.wikipedia.org/wiki/Roulette) 
     switch(panuse_stiil) {
+        case 9: // numbriga panus
+            väline_tulemus((number == numbripanus), panuse_kogus, 35, konto);
+        break;
+
         case 10: // 1 tulp
             väline_tulemus((number % 3 == 1 && number != 37), panuse_kogus, 2, konto);
         break;
@@ -135,7 +156,7 @@ void round(int panuse_kogus, int panuse_stiil, int* konto) { //22 võidu viisi
             number == 16 || number == 19 || number == 23 || number == 27 || number == 39 || number == 32 || number == 34), panuse_kogus, 2, konto);
         break;
     }
-
+    std::cout << "\n=======================\n\n";
 }
 
 //vaatab kas kasutaja sisestatud sisend on õige
@@ -214,12 +235,12 @@ void mängima(int* konto) {
     std::cout << "**************\nmängimine\n**************\n\n";
     int panus;
     while (true) { 
-        std::cout << "Sisestage panuse suurus: ";
+        std::cout << "Teil on raha alles: " << *konto << "\nSisestage panuse suurus: ";
         std::cin >> panus;
         if (panus <= *konto) {
             break;
         } else {
-            std::cout << "Pole piisavalt raha panuse tegemiseks!\nTeil on kontol alles " << *konto << "\n";
+            std::cout << "Pole piisavalt raha panuse tegemiseks!\nTeil on raha alles: " << *konto << "\n";
         }
     }
 
@@ -232,66 +253,62 @@ void mängima(int* konto) {
 
         switch(sisend) {
             case 1: //must
-                std::cout << "\n=======================\n\n";
                 round(panus, 19, konto);
-                std::cout << "\n=======================\n\n";
             break;
 
             case 2: //punane
-                std::cout << "\n=======================\n\n";
                 round(panus, 18, konto);
-                std::cout << "\n=======================\n\n";
             break;
 
-            case 3: 
-
+            case 3: //kõrge
+                round(panus, 21, konto);
             break;
 
-            case 4: 
-            
+            case 4: //madal
+                round(panus, 20, konto);
             break;
 
-            case 5: 
-            
+            case 5: //number
+                round(panus, 9, konto);
             break;
 
-            case 6: 
-            
+            case 6: //paaritu
+                round(panus, 16, konto);
             break;
 
-            case 7: 
-            
+            case 7: //paaris
+                round(panus, 17, konto);
             break;
 
-            case 8: 
-            
+            case 8: //1. tosin
+                round(panus, 13, konto);
             break;
 
-            case 9: 
-            
+            case 9: //2. tosin
+                round(panus, 14, konto);
             break;
 
-            case 10: 
-            
+            case 10: //3. tosin
+                round(panus, 15, konto);
             break;
 
-            case 11: 
-            
+            case 11: //1. tulp
+                round(panus, 10, konto);
             break;
 
-            case 12: 
-            
+            case 12: //2. tulp
+                round(panus, 11, konto);
             break;
 
-            case 13: 
-            
+            case 13: //3. tulp
+                round(panus, 12, konto);
             break;
 
-            case 14: 
-            
+            case 14: // madu/snake
+                round(panus, 22, konto);
             break;
 
-            case 15: 
+            case 15: //välju
                 return;
             break;
         }

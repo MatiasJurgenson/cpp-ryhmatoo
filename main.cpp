@@ -17,9 +17,9 @@ int main(int argc, char* argv[]) {
     //seni kuni programm töötab
     while (töötab) {
         std::cout << "**************\nvalige tegevus\n**************\n\n";
-        std::cout << "1. panustamise viisid\n2. mängima\n3. välju\n\nValiku tegemiseks sisestage number: ";
+        std::cout << "1. panustamise viisid\n2. mängima\n3. raha kontol\n4. välju\n\nValiku tegemiseks sisestage number: ";
         
-        int sisend = valik(3);
+        int sisend = valik(4);
 
         switch(sisend) {
             case 1: // panustamise viisid
@@ -30,14 +30,18 @@ int main(int argc, char* argv[]) {
                 mängima(kontoptr);
             break;
 
-            case 3: // mängima
+            case 3: // palju raha
+                std::cout << "=======================\n\nTeil on raha alles: " << konto <<"\n\n=======================\n\n";
+            break;
+
+            case 4: // mängima
                 std::cout << "järgmise korrani!\n";
                 töötab = false;
             break;
         }
     }
     
-
+    /*
     std::vector<int> kasutaja_sisend; //käsurea sisendi hoidmiseks
     käsurealt_info(argc, argv, kasutaja_sisend); //lisab käsurealt saadu kasutaja_sisend vektorisse
 
@@ -46,6 +50,7 @@ int main(int argc, char* argv[]) {
     }
     
     std::cout << "Raha alles: " << konto << "\n";
+    */
     raha_faili("raha.txt", konto); //paneb konto summa faili
     
     return 0;
