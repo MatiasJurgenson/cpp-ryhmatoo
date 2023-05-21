@@ -34,13 +34,13 @@ int main(int argc, char* argv[]) {
                 std::cout << "=======================\n\nTeil on raha alles: " << konto <<"\n\n=======================\n\n";
             break;
 
-            case 4:
+            case 4: //kuvab statistika
                 statistikaTee("stat.txt");
             break;
 
-            case 5: // mängima
+            case 5: // tühjendab statistika
                 statistikaPuhasta("stat.txt");
-                std::cout << "\nStatistika on puhastatud!\n\n";
+                std::cout << "\nStatistika on puhastatud!\n";
             break;
 
             case 6: // mängima

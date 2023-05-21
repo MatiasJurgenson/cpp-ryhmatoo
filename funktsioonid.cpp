@@ -356,22 +356,16 @@ void mängima(int* konto) {
 
 void statistikaTee(std::string failiNimi) {
     std::ifstream fail(failiNimi); //avab faili
-    std::string rida;
+    std::string rida; 
     std::map<int, int> tulemus;
-    while (std::getline(fail, rida)) {
-        
-        int number = std::stoi(rida);
-        /*if (tulemus.find(number) == tulemus.end()) { //ei ole tulemustes
-            tulemus.insert(number, 1);
-        } else { //on tulemustes
-            tulemus[number]++;
-        } 
-        */
-        tulemus[number]++;
+    while (std::getline(fail, rida)) { //käib kõik read läbi
+        int number = std::stoi(rida); //saab numbri
+        tulemus[number]++; //lisab map'i
     }
 
     fail.close();
 
+    //prindib statistika
     std::cout << "\nstatistika\n";
     std::cout << "=======================\n";
     for (auto elem : tulemus) {
@@ -382,14 +376,14 @@ void statistikaTee(std::string failiNimi) {
     std::cout << "=======================\n";
 }
 
-void statistikaJuurde(std::string failiNimi, int number) {
+void statistikaJuurde(std::string failiNimi, int number) { //avab faili ja kirjutab juurde numbri
     std::ofstream fail;
-    fail.open(failiNimi, std::ios_base::app); // append instead of overwrite
+    fail.open(failiNimi, std::ios_base::app);
     fail << number << '\n';
     fail.close(); 
 }
 
-void statistikaPuhasta(std::string failiNimi) {
+void statistikaPuhasta(std::string failiNimi) { //avab faili ja teeb selle tühjaks
     std::ofstream fail;
     fail.open(failiNimi, std::ofstream::out | std::ofstream::trunc);
     fail.close();
