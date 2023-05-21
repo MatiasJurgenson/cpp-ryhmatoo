@@ -93,7 +93,8 @@ void round(int panuse_kogus, int panuse_stiil, int* konto) { //22 võidu viisi
     std::cout << "\n=======================\n\n";
 
     //väljastadakse, tulemus
-    std::cout << "Pall maandus: " << round_värv << " " << number << "\n";     
+    std::cout << "Pall maandus: " << round_värv << " " << number << "\n";
+    statistikaJuurde("stat.txt", number);     
 
     //sisemised panused
 
@@ -349,4 +350,47 @@ void mängima(int* konto) {
         //peale panuse tegemist läheb peaekraanile tagasi
         return;
     }
+}
+
+
+
+void statistikaTee(std::string failiNimi) {
+    std::ifstream fail(failiNimi); //avab faili
+    std::string rida;
+    std::map<int, int> tulemus;
+    while (std::getline(fail, rida)) {
+        
+        int number = std::stoi(rida);
+        /*if (tulemus.find(number) == tulemus.end()) { //ei ole tulemustes
+            tulemus.insert(number, 1);
+        } else { //on tulemustes
+            tulemus[number]++;
+        } 
+        */
+        tulemus[number]++;
+    }
+
+    fail.close();
+
+    std::cout << "\nstatistika\n";
+    std::cout << "=======================\n";
+    for (auto elem : tulemus) {
+        std::cout << "Number " << elem.first << " " << elem.second << " on esinenud"; 
+        if (elem.second > 1) std::cout << " korda\n";
+        else std::cout << " kord\n";
+    }
+    std::cout << "=======================\n";
+}
+
+void statistikaJuurde(std::string failiNimi, int number) {
+    std::ofstream fail;
+    fail.open(failiNimi, std::ios_base::app); // append instead of overwrite
+    fail << number << '\n';
+    fail.close(); 
+}
+
+void statistikaPuhasta(std::string failiNimi) {
+    std::ofstream fail;
+    fail.open(failiNimi, std::ofstream::out | std::ofstream::trunc);
+    fail.close();
 }

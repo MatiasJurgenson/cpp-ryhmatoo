@@ -6,6 +6,7 @@
 #include <iostream>
 #include <sstream>
 #include <fstream>
+#include <map>
 
 int suvaline_number(int a, int b);
 std::string värv(int a);
@@ -17,6 +18,9 @@ void raha_faili(std::string failiNimi, int& summa);
 int valik(int mitu_valikut);
 void panuse_viisid();
 void mängima(int* konto);
+void statistikaTee(std::string failiNimi);
+void statistikaJuurde(std::string failiNimi, int number);
+void statistikaPuhasta(std::string failiNimi);
 
 
 #endif

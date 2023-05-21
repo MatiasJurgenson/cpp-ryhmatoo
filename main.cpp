@@ -17,9 +17,9 @@ int main(int argc, char* argv[]) {
     //seni kuni programm töötab
     while (töötab) {
         std::cout << "**************\nvalige tegevus\n**************\n\n";
-        std::cout << "1. panustamise viisid\n2. mängima\n3. raha kontol\n4. välju\n\nValiku tegemiseks sisestage number: ";
+        std::cout << "1. panustamise viisid\n2. mängima\n3. raha kontol\n4. vaata statistikat\n5. tühjenda statistika\n6. välju\nValiku tegemiseks sisestage number: ";
         
-        int sisend = valik(4);
+        int sisend = valik(6);
 
         switch(sisend) {
             case 1: // panustamise viisid
@@ -34,7 +34,16 @@ int main(int argc, char* argv[]) {
                 std::cout << "=======================\n\nTeil on raha alles: " << konto <<"\n\n=======================\n\n";
             break;
 
-            case 4: // mängima
+            case 4:
+                statistikaTee("stat.txt");
+            break;
+
+            case 5: // mängima
+                statistikaPuhasta("stat.txt");
+                std::cout << "\nStatistika on puhastatud!\n\n";
+            break;
+
+            case 6: // mängima
                 std::cout << "järgmise korrani!\n";
                 töötab = false;
             break;
